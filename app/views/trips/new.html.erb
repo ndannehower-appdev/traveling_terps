@@ -33,7 +33,7 @@
           Year
         </label>
 
-        <input type="text" id="year_id" name="year_id" placeholder="Year" class="form-control" value="<%= @trip.year_id %>">
+        <%= select_tag(:year_id, options_from_collection_for_select(Year.all, :id, :year, @trip.year_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">

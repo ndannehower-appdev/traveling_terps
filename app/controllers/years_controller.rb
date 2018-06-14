@@ -6,6 +6,8 @@ class YearsController < ApplicationController
   end
 
   def show
+    @trip = Trip.new
+    @recommendation = Recommendation.new
     @year = Year.find(params[:id])
 
     render("years/show.html.erb")

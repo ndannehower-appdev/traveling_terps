@@ -51,6 +51,122 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_recommendation" method="post" enctype="multipart/form-data">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for recommendation -->
+      <div class="form-group">
+        <label for="recommendation" class="control-label">
+          Recommendation
+        </label>
+
+        <input type="text" id="recommendation" name="recommendation" placeholder="Recommendation" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for category_id -->
+      <div class="form-group">
+        <label for="category_id" class="control-label">
+          Category
+        </label>
+
+        <%= select_tag(:category_id, options_from_collection_for_select(Category.all, :id, :category), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for country_id -->
+      <div class="form-group">
+        <label for="country_id" class="control-label">
+          Country
+        </label>
+
+        <%= select_tag(:country_id, options_from_collection_for_select(Country.all, :id, :country), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for city_id -->
+      <div class="form-group">
+        <label for="city_id" class="control-label">
+          City
+        </label>
+
+        <%= select_tag(:city_id, options_from_collection_for_select(City.all, :id, :city), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for address -->
+      <div class="form-group">
+        <label for="address" class="control-label">
+          Address
+        </label>
+
+        <input type="text" id="address" name="address" placeholder="Address" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for month_id -->
+      <div class="form-group">
+        <label for="month_id" class="control-label">
+          Month
+        </label>
+
+        <%= select_tag(:month_id, options_from_collection_for_select(Month.all, :id, :month), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for year_id -->
+      <div class="form-group">
+        <label for="year_id" class="control-label">
+          Year
+        </label>
+
+        <%= select_tag(:year_id, options_from_collection_for_select(Year.all, :id, :year), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for trip_id -->
+      <div class="form-group">
+        <label for="trip_id" class="control-label">
+          Trip
+        </label>
+
+        <%= select_tag(:trip_id, options_from_collection_for_select(Trip.all, :id, :trip), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for visited_with -->
+      <div class="form-group">
+        <label for="visited_with" class="control-label">
+          Visited with
+        </label>
+
+        <input type="text" id="visited_with" name="visited_with" placeholder="Visited with" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for rating_id -->
+      <input type="hidden" name="rating_id" value="<%= @rating.id %>">
+
+      <!-- Label and input for notes -->
+      <div class="form-group">
+        <label for="notes" class="control-label">
+          Notes
+        </label>
+
+        <input type="text" id="notes" name="notes" placeholder="Notes" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for photo -->
+      <div class="form-group">
+        <label for="photo" class="control-label">
+          Photo
+        </label>
+
+        <input type="file" id="photo" name="photo" class="form-control">
+      </div>
+
+      <!-- Label and input for user_id -->
+      <input type="hidden" name="user_id" value="<%= current_user.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Recommendation
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

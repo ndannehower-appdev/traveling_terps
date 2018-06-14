@@ -6,6 +6,7 @@ class MonthsController < ApplicationController
   end
 
   def show
+    @recommendation = Recommendation.new
     @month = Month.find(params[:id])
 
     render("months/show.html.erb")

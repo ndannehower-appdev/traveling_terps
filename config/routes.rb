@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Month resource:
+  # CREATE
+  get "/months/new", :controller => "months", :action => "new"
+  post "/create_month", :controller => "months", :action => "create"
+
+  # READ
+  get "/months", :controller => "months", :action => "index"
+  get "/months/:id", :controller => "months", :action => "show"
+
+  # UPDATE
+  get "/months/:id/edit", :controller => "months", :action => "edit"
+  post "/update_month/:id", :controller => "months", :action => "update"
+
+  # DELETE
+  get "/delete_month/:id", :controller => "months", :action => "destroy"
+  #------------------------------
+
   devise_for :users
   # Routes for the User resource:
   # READ

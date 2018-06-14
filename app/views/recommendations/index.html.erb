@@ -37,18 +37,66 @@
       <% @recommendations.each do |recommendation| %>
       <tr>
         <td><%= recommendation.recommendation %></td>
-        <td><%= recommendation.category.category %></td>
-        <td><%= recommendation.country.country %></td>
-        <td><%= recommendation.city.city %></td>
+        <td>
+          <% if recommendation.category.present? %>
+            <a href="/categories/<%= recommendation.category.id %>">
+              <%= recommendation.category.category %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if recommendation.country.present? %>
+            <a href="/countries/<%= recommendation.country.id %>">
+              <%= recommendation.country.country %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if recommendation.city.present? %>
+            <a href="/cities/<%= recommendation.city.id %>">
+              <%= recommendation.city.city %>
+            </a>
+          <% end %>
+        </td>
         <td><%= recommendation.address %></td>
-        <td><%= recommendation.month.month %></td>
-        <td><%= recommendation.year.year %></td>
-        <td><%= recommendation.trip.trip %></td>
+        <td>
+          <% if recommendation.month.present? %>
+            <a href="/months/<%= recommendation.month.id %>">
+              <%= recommendation.month.month %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if recommendation.year.present? %>
+            <a href="/years/<%= recommendation.year.id %>">
+              <%= recommendation.year.year %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if recommendation.trip.present? %>
+            <a href="/trips/<%= recommendation.trip.id %>">
+              <%= recommendation.trip.trip %>
+            </a>
+          <% end %>
+        </td>
         <td><%= recommendation.visited_with %></td>
-        <td><%= recommendation.rating.rating %></td>
+        <td>
+          <% if recommendation.rating.present? %>
+            <a href="/ratings/<%= recommendation.rating.id %>">
+              <%= recommendation.rating.rating %>
+            </a>
+          <% end %>
+        </td>
         <td><%= recommendation.notes %></td>
         <td><img src='<%= recommendation.photo %>' class='img-responsive'></td>
-        <td><%= recommendation.user.created_at %></td>
+        <td>
+          <% if recommendation.user.present? %>
+            <a href="/users/<%= recommendation.user.id %>">
+              <%= recommendation.user.created_at %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/recommendations/<%= recommendation.id %>" class="btn btn-primary">Show</a>
           

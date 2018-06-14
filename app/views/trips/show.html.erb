@@ -9,7 +9,13 @@
       <dd><%= @trip.trip %></dd>
 
       <dt>Year</dt>
-      <dd><%= @trip.year_id %></dd>
+      <dd>
+        <% if @trip.year.present? %>
+          <a href="/years/<%= @trip.year_id %>">
+            <%= @trip.year.year %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

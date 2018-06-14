@@ -17,7 +17,13 @@
       <% @trips.each do |trip| %>
       <tr>
         <td><%= trip.trip %></td>
-        <td><%= trip.year.year %></td>
+        <td>
+          <% if trip.year.present? %>
+            <a href="/years/<%= trip.year.id %>">
+              <%= trip.year.year %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/trips/<%= trip.id %>" class="btn btn-primary">Show</a>
           <a href="/trips/<%= trip.id %>/edit" class="btn btn-warning">Edit</a>

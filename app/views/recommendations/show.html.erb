@@ -9,13 +9,31 @@
       <dd><%= @recommendation.recommendation %></dd>
 
       <dt>Category</dt>
-      <dd><%= @recommendation.category_id %></dd>
+      <dd>
+        <% if @recommendation.category.present? %>
+          <a href="/categories/<%= @recommendation.category_id %>">
+            <%= @recommendation.category.category %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Country</dt>
-      <dd><%= @recommendation.country_id %></dd>
+      <dd>
+        <% if @recommendation.country.present? %>
+          <a href="/countries/<%= @recommendation.country_id %>">
+            <%= @recommendation.country.country %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>City</dt>
-      <dd><%= @recommendation.city_id %></dd>
+      <dd>
+        <% if @recommendation.city.present? %>
+          <a href="/cities/<%= @recommendation.city_id %>">
+            <%= @recommendation.city.city %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Address</dt>
       <dd>
@@ -25,19 +43,43 @@
       </dd>
 
       <dt>Month</dt>
-      <dd><%= @recommendation.month_id %></dd>
+      <dd>
+        <% if @recommendation.month.present? %>
+          <a href="/months/<%= @recommendation.month_id %>">
+            <%= @recommendation.month.month %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Year</dt>
-      <dd><%= @recommendation.year_id %></dd>
+      <dd>
+        <% if @recommendation.year.present? %>
+          <a href="/years/<%= @recommendation.year_id %>">
+            <%= @recommendation.year.year %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Trip</dt>
-      <dd><%= @recommendation.trip_id %></dd>
+      <dd>
+        <% if @recommendation.trip.present? %>
+          <a href="/trips/<%= @recommendation.trip_id %>">
+            <%= @recommendation.trip.trip %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Visited with</dt>
       <dd><%= @recommendation.visited_with %></dd>
 
       <dt>Rating</dt>
-      <dd><%= @recommendation.rating_id %></dd>
+      <dd>
+        <% if @recommendation.rating.present? %>
+          <a href="/ratings/<%= @recommendation.rating_id %>">
+            <%= @recommendation.rating.rating %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Notes</dt>
       <dd><%= @recommendation.notes %></dd>
@@ -46,7 +88,13 @@
       <dd><img src="<%= @recommendation.photo %>" class="img-responsive"></dd>
 
       <dt>User</dt>
-      <dd><%= @recommendation.user_id %></dd>
+      <dd>
+        <% if @recommendation.user.present? %>
+          <a href="/users/<%= @recommendation.user_id %>">
+            <%= @recommendation.user.created_at %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

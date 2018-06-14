@@ -78,7 +78,7 @@
           Year
         </label>
 
-        <input type="text" id="year_id" name="year_id" placeholder="Year" class="form-control" value="<%= @recommendation.year_id %>">
+        <%= select_tag(:year_id, options_from_collection_for_select(Year.all, :id, :year, @recommendation.year_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for trip_id -->

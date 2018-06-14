@@ -10,7 +10,8 @@ class RecommendationsController < ApplicationController
   end
 
   def index
-    @recommendations = Recommendation.page(params[:page]).per(10)
+    @q = Recommendation.ransack(params[:q])
+    @recommendations = @q.result(:distinct => true).includes(:country, :city, :category, :user, :month, :year, :trip, :rating).page(params[:page]).per(10)
     @location_hash = Gmaps4rails.build_markers(@recommendations.where.not(:address_latitude => nil)) do |recommendation, marker|
       marker.lat recommendation.address_latitude
       marker.lng recommendation.address_longitude

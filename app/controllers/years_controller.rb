@@ -1,6 +1,7 @@
 class YearsController < ApplicationController
   def index
-    @years = Year.page(params[:page]).per(10)
+    @q = Year.ransack(params[:q])
+    @years = @q.result(:distinct => true).includes(:recommendations, :trips).page(params[:page]).per(10)
 
     render("years/index.html.erb")
   end

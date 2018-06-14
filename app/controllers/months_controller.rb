@@ -1,6 +1,7 @@
 class MonthsController < ApplicationController
   def index
-    @months = Month.page(params[:page]).per(10)
+    @q = Month.ransack(params[:q])
+    @months = @q.result(:distinct => true).includes(:recommendations).page(params[:page]).per(10)
 
     render("months/index.html.erb")
   end

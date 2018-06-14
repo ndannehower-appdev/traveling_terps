@@ -69,7 +69,7 @@
           Month
         </label>
 
-        <input type="text" id="month_id" name="month_id" placeholder="Month" class="form-control" value="<%= @recommendation.month_id %>">
+        <%= select_tag(:month_id, options_from_collection_for_select(Month.all, :id, :month, @recommendation.month_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for year_id -->

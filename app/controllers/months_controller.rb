@@ -1,6 +1,6 @@
 class MonthsController < ApplicationController
   def index
-    @months = Month.all
+    @months = Month.page(params[:page]).per(10)
 
     render("months/index.html.erb")
   end

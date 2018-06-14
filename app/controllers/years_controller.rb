@@ -1,6 +1,6 @@
 class YearsController < ApplicationController
   def index
-    @years = Year.all
+    @years = Year.page(params[:page]).per(10)
 
     render("years/index.html.erb")
   end

@@ -1,6 +1,10 @@
 class Recommendation < ApplicationRecord
   # Direct associations
 
+  belongs_to :trip,
+             :required => false,
+             :counter_cache => true
+
   belongs_to :year,
              :counter_cache => true
 

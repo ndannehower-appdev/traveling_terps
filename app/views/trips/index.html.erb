@@ -17,7 +17,7 @@
       <% @trips.each do |trip| %>
       <tr>
         <td><%= trip.trip %></td>
-        <td><%= trip.year_id %></td>
+        <td><%= trip.year.year %></td>
         <td>
           <a href="/trips/<%= trip.id %>" class="btn btn-primary">Show</a>
           <a href="/trips/<%= trip.id %>/edit" class="btn btn-warning">Edit</a>

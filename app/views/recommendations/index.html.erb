@@ -39,7 +39,7 @@
         <td><%= recommendation.rating.rating %></td>
         <td><%= recommendation.notes %></td>
         <td><%= recommendation.photo %></td>
-        <td><%= recommendation.user_id %></td>
+        <td><%= recommendation.user.created_at %></td>
         <td>
           <a href="/recommendations/<%= recommendation.id %>" class="btn btn-primary">Show</a>
           <a href="/recommendations/<%= recommendation.id %>/edit" class="btn btn-warning">Edit</a>

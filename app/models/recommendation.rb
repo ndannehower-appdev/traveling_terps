@@ -1,6 +1,9 @@
 class Recommendation < ApplicationRecord
   # Direct associations
 
+  belongs_to :year,
+             :counter_cache => true
+
   belongs_to :month,
              :counter_cache => true
 

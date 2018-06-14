@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Year resource:
+  # CREATE
+  get "/years/new", :controller => "years", :action => "new"
+  post "/create_year", :controller => "years", :action => "create"
+
+  # READ
+  get "/years", :controller => "years", :action => "index"
+  get "/years/:id", :controller => "years", :action => "show"
+
+  # UPDATE
+  get "/years/:id/edit", :controller => "years", :action => "edit"
+  post "/update_year/:id", :controller => "years", :action => "update"
+
+  # DELETE
+  get "/delete_year/:id", :controller => "years", :action => "destroy"
+  #------------------------------
+
   # Routes for the Month resource:
   # CREATE
   get "/months/new", :controller => "months", :action => "new"
